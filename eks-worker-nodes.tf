@@ -89,7 +89,7 @@ resource "aws_security_group_rule" "susecap-node-ingress-cluster" {
 data "aws_ami" "eks-worker" {
   filter {
     name   = "name"
-    values = ["amazon-eks-node-v*"]
+    values = ["amazon-eks-node-*"]
   }
 
   most_recent = true
@@ -113,7 +113,8 @@ resource "aws_launch_configuration" "susecap" {
   associate_public_ip_address = true
   iam_instance_profile        = "${aws_iam_instance_profile.susecap-node.name}"
   image_id                    = "${data.aws_ami.eks-worker.id}"
-  instance_type               = "m4.large"
+  instance_type               = "m4.xlarge"
+  spot_price                  = "0.26"
   name_prefix                 = "terraform-eks-susecap"
   security_groups             = ["${aws_security_group.susecap-node.id}"]
   user_data_base64            = "${base64encode(local.susecap-node-userdata)}"

@@ -8,6 +8,6 @@ variable "cluster-name" {
 }
 
 variable "aws-az" {
-  default = ["us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
+  default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }
 
