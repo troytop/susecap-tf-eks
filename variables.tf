@@ -8,11 +8,11 @@ variable "cluster-name" {
 }
 
 variable "cluster-version" {
-  default = "1.11"
+  default = "1.12"
   type    = "string"
 }
 
 variable "aws-az" {
-  default = ["us-west-2a", "us-west-2b", "us-west-2c"]
+  default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }
 
