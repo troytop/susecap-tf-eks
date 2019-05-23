@@ -72,8 +72,9 @@ resource "aws_security_group_rule" "susecap-cluster-ingress-https" {
 }
 
 resource "aws_eks_cluster" "susecap" {
-  name     = "${var.cluster-name}"
-  role_arn = "${aws_iam_role.susecap-cluster.arn}"
+  name      = "${var.cluster-name}"
+  version   = "${var.cluster-version}"
+  role_arn  = "${aws_iam_role.susecap-cluster.arn}"
 
   vpc_config {
     security_group_ids = ["${aws_security_group.susecap-cluster.id}"]

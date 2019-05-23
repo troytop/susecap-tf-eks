@@ -18,7 +18,7 @@ resource "aws_vpc" "susecap" {
 }
 
 resource "aws_subnet" "susecap" {
-  count = 2
+  count = 3
 
   availability_zone = "${var.aws-az[count.index]}"
   cidr_block        = "10.0.${count.index}.0/24"
@@ -50,7 +50,7 @@ resource "aws_route_table" "susecap" {
 }
 
 resource "aws_route_table_association" "susecap" {
-  count = 2
+  count = 3
 
   subnet_id      = "${aws_subnet.susecap.*.id[count.index]}"
   route_table_id = "${aws_route_table.susecap.id}"
