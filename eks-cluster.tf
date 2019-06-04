@@ -46,7 +46,7 @@ resource "aws_security_group" "susecap-cluster" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "susecap-eks"
   }
 }
@@ -78,7 +78,7 @@ resource "aws_eks_cluster" "susecap" {
 
   vpc_config {
     security_group_ids = ["${aws_security_group.susecap-cluster.id}"]
-    subnet_ids         = ["${aws_subnet.susecap.*.id}"]
+    subnet_ids         = flatten(["${aws_subnet.susecap.*.id}"])
   }
 
   depends_on = [

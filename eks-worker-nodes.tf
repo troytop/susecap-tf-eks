@@ -136,7 +136,7 @@ resource "aws_autoscaling_group" "susecap" {
   max_size             = 3
   min_size             = 1
   name                 = "terraform-eks-susecap"
-  vpc_zone_identifier  = ["${aws_subnet.susecap.*.id}"]
+  vpc_zone_identifier  = flatten(["${aws_subnet.susecap.*.id}"])
 
   tag {
     key                 = "Name"

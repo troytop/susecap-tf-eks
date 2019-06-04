@@ -35,7 +35,7 @@ resource "aws_subnet" "susecap" {
 resource "aws_internet_gateway" "susecap" {
   vpc_id = "${aws_vpc.susecap.id}"
 
-  tags {
+  tags = {
     Name = "susecap-vpc"
   }
 }
