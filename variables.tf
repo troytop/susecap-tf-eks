@@ -13,6 +13,6 @@ variable "cluster-version" {
 }
 
 variable "aws-az" {
-  default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
+  default = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
